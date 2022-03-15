@@ -1,0 +1,62 @@
+#sets {
+  font-size: 2rem;
+}
+
+button:hover {
+  outline: 1px dotted gray;
+  background-color: #eee;
+}
+
+::selection {
+  background-color: lightslategray;
+}
+
+.align {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main {
+  padding: 1rem;
+  margin: 1rem;
+}
+
+.background {
+  background-color: rgb(244, 244, 244);
+  background-image: linear-gradient(45deg, #eee 25%, transparent 25%),
+    linear-gradient(-45deg, #efefef 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, #eee 75%),
+    linear-gradient(-45deg, transparent 75%, #efefef 75%);
+
+  background-size: 5px 5px;
+  background-position: 10 0, 10px 0, 10px -10px, 0px 10px;
+  min-height: 100vh;
+}
+
+#bottom {
+  position: fixed;
+  bottom: 1rem;
+  left: 0rem;
+  right: 0rem;
+}
+
+#helpButton {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+}
+
+#helpWindow {
+  position: absolute;
+  z-index: 10;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(255, 255, 255, 60%);
+  backdrop-filter: blur(4px);
+  font-size: 1.5rem;
+}
+
+.instructions {
+  padding: 1rem;
+}

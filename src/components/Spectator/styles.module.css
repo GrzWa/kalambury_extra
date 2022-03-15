@@ -1,0 +1,93 @@
+/* .top {
+  background-color: #ddd;
+  background-image: linear-gradient(45deg, #ccc 25%, transparent 25%),
+    linear-gradient(-45deg, #bbb 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, #ccc 75%),
+    linear-gradient(-45deg, transparent 75%, #bbb 75%);
+
+  background-size: 5px 5px;
+  background-position: 10 0, 10px 0, 10px -10px, 0px 10px;
+  color: white;
+
+  min-height: 100vh;
+} */
+/* .topblur {
+  backdrop-filter: blur(5px);
+} */
+
+.row {
+  display: flex;
+  justify-content: center;
+}
+
+.column {
+  flex: 50%;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
+  min-height: 100vh;
+}
+
+#round {
+  font-size: 1.5rem;
+  text-align: center;
+  background-color: rgb(40, 40, 40);
+  color: white;
+  padding: 1.5rem;
+}
+
+/* #left {
+  background-color: #b00;
+  background-image: linear-gradient(45deg, #700 25%, transparent 25%),
+    linear-gradient(-45deg, #900 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, #700 75%),
+    linear-gradient(-45deg, transparent 75%, #900 75%);
+
+  background-size: 20px 20px;
+  background-position: 10 0, 10px 0, 10px -10px, 0px 10px;
+  color: white;
+  padding-top: 0.5rem;
+}
+
+#right {
+  background-color: #00c;
+  background-image: linear-gradient(45deg, #007 25%, transparent 25%),
+    linear-gradient(-45deg, #00a 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, #007 75%),
+    linear-gradient(-45deg, transparent 75%, #00a 75%);
+
+  background-size: 20px 20px;
+  background-position: 10 0, 10px 0, 10px -10px, 0px 10px;
+  color: white;
+  padding-top: 0.5rem;
+} */
+
+h1 {
+  font-size: 10rem;
+  margin: 1px;
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  padding-top: 30vh;
+
+  background-color: #efefef;
+  /* background-image: linear-gradient(45deg, #059 25%, transparent 25%),
+    linear-gradient(-45deg, #07c 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, #059 75%),
+    linear-gradient(-45deg, transparent 75%, #07c 75%);
+
+  background-size: 20px 20px;
+  background-position: 5 0, 5px 0, 5px -5px, 0px 5px; */
+  color: white;
+  min-height: 70vh;
+  font-size: 5rem;
+}
+
+.list {
+  margin: auto;
+  width: auto;
+  padding: 10px;
+  text-align: center;
+}

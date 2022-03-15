@@ -1,0 +1,10 @@
+.active {
+  font-weight: 900;
+  /* color: rebeccapurple; */
+  padding-left: 0.3rem;
+}
+
+.dis {
+  color: gray;
+  background-color: aliceblue;
+}

@@ -1,0 +1,22 @@
+#nextskip {
+  height: 10vh;
+  width: 50vw;
+}
+
+.center {
+  font-size: 2rem;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+#question {
+  font-size: 3rem;
+  font-weight: 800;
+}
+
+.counter {
+  position: relative;
+  bottom: 30;
+  color: black;
+}
