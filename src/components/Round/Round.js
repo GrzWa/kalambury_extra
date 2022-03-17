@@ -13,6 +13,7 @@ import _ from "lodash";
 import styles from "./styles.module.css";
 import gstyles from "../gstyles.module.css";
 import { Link } from "react-router-dom";
+import { getRoundInstructions } from "./utils";
 
 export default function Round() {
   const [currentQuestion, setCurrentQuestion] = useState("");
@@ -201,13 +202,7 @@ export default function Round() {
         </div>
         <div id={team === 1 ? gstyles.team1 : gstyles.team0}>
           <div style={{ minHeight: "30vh", maxHeight: "60vh" }}>
-            <div className={styles.center}>
-              {round === 1
-                ? "Describe:"
-                : round === 2
-                ? "Describe in 1 word:"
-                : "Show:"}
-            </div>
+            <div className={styles.center}>{getRoundInstructions(round)}</div>
             <br />
             <div id={styles.question} className={styles.center}>
               {currentQuestion}
