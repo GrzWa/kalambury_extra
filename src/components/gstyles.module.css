@@ -24,6 +24,7 @@
 .row {
   display: flex;
   justify-content: center;
+  height: 90vh;
 }
 
 .column {
@@ -31,8 +32,6 @@
   text-align: center;
   font-size: 2rem;
   font-weight: 700;
-  min-height: 20vh;
-  max-height: 80vh;
 }
 
 .topbar {
@@ -44,18 +43,13 @@
 }
 
 #team0 {
-  /* background-color: #e4ffff; */
   background-color: rgba(140, 220, 140, 0.6);
-  color: #988;
-  /* background-color: #eff;
-  color: #a99; */
+  color: rgb(206, 165, 165);
 }
 
 #team1 {
   background-color: rgba(220, 140, 140, 0.6);
-  color: #899;
-  /* background-color: #fee;
-  color: #9aa; */
+  color: rgb(147, 201, 201);
 }
 
 #team {
@@ -75,10 +69,11 @@
   left: 35vw;
   right: 35vw;
   height: 5vh;
+  border-radius: 1em;
 }
 
-#topback {
-  position: fixed;
-  top: 1vh;
-  left: 1vw;
+.topback {
+  position: absolute;
+  top: 0.8em;
+  left: 0.8em;
 }

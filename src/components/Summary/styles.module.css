@@ -3,18 +3,19 @@
   height: 100vh;
 }
 
-#next {
+.next {
   position: fixed;
   bottom: 10vh;
   left: 25vw;
   right: 25vw;
   height: 10vh;
+  border-radius: 1em;
 }
 
-#back {
+/* #back {
   position: fixed;
   bottom: 0;
   left: 35vw;
   right: 35vw;
   height: 5vh;
-}
+} */

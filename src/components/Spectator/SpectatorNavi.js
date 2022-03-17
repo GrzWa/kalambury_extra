@@ -28,7 +28,7 @@ export default function SpectatorNavi() {
       <div className={gstyles.background2}>
         <div className={styles.topblur}>
           <Link to="/">
-            <button id={gstyles.topback}>Back</button>
+            <button className={gstyles.topback}>&lt;</button>
           </Link>
           <div id={styles.round}>Choose a game to spectate:</div>
           {Object.keys(allGames).length ? (

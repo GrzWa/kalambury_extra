@@ -63,7 +63,7 @@ export default function Summary() {
         {round <= 3 ? (
           <>
             <Link to={`/round/${params.gameID}`}>
-              <button id={styles.next}>NEXT</button>
+              <button className={styles.next}>NEXT</button>
             </Link>
           </>
         ) : null}

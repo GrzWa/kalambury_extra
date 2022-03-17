@@ -23,14 +23,16 @@ export default function SpectatorGame() {
       <div className={gstyles.background2}>
         {currentGame?.teamPoints ? (
           <>
-            <div id={styles.round}>
+            <div className={styles.round}>
               <Link to="/spectate/">
                 <button
                   style={{
-                    float: "left",
+                    position: "absolute",
+                    left: "1em",
+                    top: "1em",
                   }}
                 >
-                  Back
+                  &lt;
                 </button>
               </Link>
               {currentGame.currentRound > 3
@@ -39,28 +41,18 @@ export default function SpectatorGame() {
             </div>
             {/* --------------------------------------------------------- */}
             <div className={gstyles.row}>
-              <div
-                className={gstyles.column}
-                // id={styles.left}
-                id={gstyles.team0}
-              >
+              <div className={gstyles.column} id={gstyles.team0}>
                 {currentGame.activeTeam === 0 && currentGame.currentRound < 4
                   ? ">Team 1<"
                   : "Team 1"}
-                {/* <h1>{currentGame.teamPoints[0]}</h1> */}
                 <div id={gstyles.points}>{currentGame.teamPoints[0]}</div>
               </div>
 
               {/* --------------------------------------------------------- */}
-              <div
-                className={gstyles.column}
-                // id={styles.right}
-                id={gstyles.team1}
-              >
+              <div className={gstyles.column} id={gstyles.team1}>
                 {currentGame.activeTeam === 1 && currentGame.currentRound < 4
                   ? ">Team 2<"
                   : "Team 2"}
-                {/* <h1>{currentGame.teamPoints[1]}</h1> */}
                 <div id={gstyles.points}>{currentGame.teamPoints[1]}</div>
               </div>
             </div>

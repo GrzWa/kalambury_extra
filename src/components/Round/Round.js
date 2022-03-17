@@ -190,10 +190,10 @@ export default function Round() {
 
   return (
     <>
-      <Link to="/">
-        <button id={gstyles.topback}>Home</button>
-      </Link>
       <div className={gstyles.background}>
+        <Link to="/">
+          <button id={gstyles.topback}>Home</button>
+        </Link>
         <div className={gstyles.topbar}>
           Round: {round}
           <br />
