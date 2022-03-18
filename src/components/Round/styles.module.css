@@ -1,6 +1,17 @@
-#nextskip {
+.next_button {
   height: 10vh;
   width: 50vw;
+  position: fixed;
+  bottom: 5vh;
+  left: 0;
+}
+
+.skip_button {
+  height: 10vh;
+  width: 50vw;
+  position: fixed;
+  bottom: 5vh;
+  right: 0;
 }
 
 .center {
@@ -19,4 +30,9 @@
   position: relative;
   bottom: 30;
   color: black;
+}
+
+.points_display {
+  min-height: 30vh;
+  max-height: 60vh;
 }

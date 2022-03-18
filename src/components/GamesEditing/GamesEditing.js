@@ -25,15 +25,17 @@ export default function GamesEditing() {
   return (
     <>
       {Object.keys(allGames).length ? (
-        Object.entries(allGames).map((obj) => (
-          <div key={obj[0]}>
-            <div>Game ID: {obj[0]}</div>
-            <Link to={`/admin/edit_games/${obj[0].replace(/\s/g, "")}`}>
-              <button>Edit</button>
-            </Link>
-            {/* <button>Remove game</button> */}
-          </div>
-        ))
+        Object.entries(allGames).map((obj) => {
+          const gameId = obj[0];
+          return (
+            <div key={gameId}>
+              <div>Game ID: {gameId}</div>
+              <Link to={`/admin/edit_games/${gameId.replace(/\s/g, "")}`}>
+                <button>Edit</button>
+              </Link>
+            </div>
+          );
+        })
       ) : (
         <div>Loading</div>
       )}

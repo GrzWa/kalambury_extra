@@ -1,14 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import { useParams } from "react-router";
-import {
-  getDocs,
-  collection,
-  doc,
-  getDoc,
-  updateDoc,
-} from "firebase/firestore";
+import { doc, getDoc, updateDoc } from "firebase/firestore";
 import { db } from "../Firebase/firebase";
-import { Layout } from "../Layout/Layout";
 
 export default function DisplayedSet() {
   const params = useParams();
@@ -54,30 +47,28 @@ export default function DisplayedSet() {
 
   if (Object.keys(currentSet)?.length > 0) {
     return (
-      <Layout>
-        <div key={currentSet.title}>
-          <h2>{currentSet.title}</h2>
+      <div key={currentSet.title}>
+        <h2>{currentSet.title}</h2>
 
-          {currentSet.questions.map((setVal, index) => (
-            <div key={`${setVal}${index}`}>
-              <input
-                key={setVal}
-                defaultValue={setVal}
-                onChange={(event) => handleSetInput(event, index)}
-              ></input>
-              <button onClick={() => handleObjDelete(index)}>DELETE</button>
-            </div>
-          ))}
-          {isAddingNew ? (
-            <>
-              <input onChange={(e) => handleAddNewItem(e.target.value)}></input>
-              <br />
-            </>
-          ) : null}
-          <button onClick={() => setIsAddingNew(true)}>Add new item</button>
-          <button onClick={() => uploadNewSet()}>Save all</button>
-        </div>
-      </Layout>
+        {currentSet.questions.map((setVal, index) => (
+          <div key={`${setVal}${index}`}>
+            <input
+              key={setVal}
+              defaultValue={setVal}
+              onChange={(event) => handleSetInput(event, index)}
+            ></input>
+            <button onClick={() => handleObjDelete(index)}>DELETE</button>
+          </div>
+        ))}
+        {isAddingNew ? (
+          <>
+            <input onChange={(e) => handleAddNewItem(e.target.value)}></input>
+            <br />
+          </>
+        ) : null}
+        <button onClick={() => setIsAddingNew(true)}>Add new item</button>
+        <button onClick={() => uploadNewSet()}>Save all</button>
+      </div>
     );
   } else {
     return <div>Something went wrong</div>;

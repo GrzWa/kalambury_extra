@@ -29,10 +29,6 @@ export default function HelpScreen(props) {
           3. In the last round you have to show your word or phrase without
           using words or sounds.
         </div>
-        {/* <br/>
-      <div className={styles.slign}>
-        Time is limited for each turn
-      </div> */}
       </div>
     </div>
   );

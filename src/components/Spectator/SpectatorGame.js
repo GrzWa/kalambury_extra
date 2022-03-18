@@ -1,4 +1,4 @@
-import { collection, doc, onSnapshot } from "firebase/firestore";
+import { doc, onSnapshot } from "firebase/firestore";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
@@ -26,11 +26,7 @@ export default function SpectatorGame() {
             <div className={styles.round}>
               <Link to="/spectate/">
                 <button
-                  style={{
-                    position: "absolute",
-                    left: "1em",
-                    top: "1em",
-                  }}
+                  className={gstyles.topback}
                 >
                   &lt;
                 </button>

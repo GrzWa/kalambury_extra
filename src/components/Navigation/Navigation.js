@@ -175,13 +175,6 @@ export default function Navigation() {
               </div>
             ) : null
           )}
-          {/* {Object.entries(allSets).map((obj, index) =>
-            !obj[1].disabled ? (
-              <div className={styles.align} key={`${obj[0]}${index}`}>
-                Hey
-              </div>
-            ) : null
-          )} */}
         </div>
 
         <br />
@@ -194,16 +187,6 @@ export default function Navigation() {
           </Link>
         </div>
       </div>
-
-      {Object.entries(allSets).forEach((obj, index) => {
-        if (obj[1].disabled) {
-          return (
-            <div>
-              HelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHello
-            </div>
-          );
-        }
-      })}
     </ThemeProvider>
   );
 }

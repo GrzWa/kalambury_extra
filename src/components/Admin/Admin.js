@@ -1,11 +1,5 @@
 import React from "react";
-import {
-  BrowserRouter,
-  Link,
-  Route,
-  Switch,
-  useHistory,
-} from "react-router-dom/";
+import { Link, Route, Switch } from "react-router-dom/";
 import SetsEditing from "../SetsEditing/SetsEditing";
 import DisplayedSet from "../SetsEditing/DisplayedSet";
 import GamesEditing from "../GamesEditing/GamesEditing";

@@ -10,7 +10,6 @@ import { useParams } from "react-router";
 import { db } from "../Firebase/firebase";
 import styles from "./style.module.css";
 import _ from "lodash";
-import chunk from "lodash/chunk";
 
 export default function DisplayedGame() {
   const params = useParams();
@@ -42,10 +41,6 @@ export default function DisplayedGame() {
 
     loadData();
   }, []);
-
-  // useEffect(() => {
-  //   console.log(backupData);
-  // }, [backupData.gameData]);
 
   const {
     currentRound,

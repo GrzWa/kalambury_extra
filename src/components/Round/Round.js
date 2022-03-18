@@ -1,13 +1,7 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import { Redirect } from "react-router-dom/cjs/react-router-dom.min";
 import { db } from "../Firebase/firebase";
-import {
-  collection,
-  getDocs,
-  updateDoc,
-  doc,
-  getDoc,
-} from "firebase/firestore";
+import { updateDoc, doc, getDoc } from "firebase/firestore";
 import { useParams } from "react-router";
 import _ from "lodash";
 import styles from "./styles.module.css";
@@ -22,7 +16,6 @@ export default function Round() {
   const [points, setPoints] = useState([0, 0]);
   const [team, setTeam] = useState(0);
   const [round, setRound] = useState(0);
-  // const [listOfQLeft, setListOfQLeft] = useState();
   const [seconds, setSeconds] = useState(25);
   const [finish, setFinish] = useState(false);
   const [allQuestions, setAllQuestions] = useState([]);
@@ -51,7 +44,7 @@ export default function Round() {
       setTeam(data.activeTeam);
       setRound(data.currentRound);
       setPoints(data.teamPoints);
-      setSeconds(10);
+      setSeconds(60);
     };
 
     getList();
@@ -193,7 +186,7 @@ export default function Round() {
     <>
       <div className={gstyles.background}>
         <Link to="/">
-          <button id={gstyles.topback}>Home</button>
+          <button className={gstyles.topback}>Home</button>
         </Link>
         <div className={gstyles.topbar}>
           Round: {round}
@@ -201,7 +194,7 @@ export default function Round() {
           Team: {team}
         </div>
         <div id={team === 1 ? gstyles.team1 : gstyles.team0}>
-          <div style={{ minHeight: "30vh", maxHeight: "60vh" }}>
+          <div className={styles.points_display}>
             <div className={styles.center}>{getRoundInstructions(round)}</div>
             <br />
             <div id={styles.question} className={styles.center}>
@@ -213,53 +206,12 @@ export default function Round() {
 
             <div className={styles.center}>seconds left!</div>
           </div>
-          <button
-            onClick={handleButtonNext}
-            id={styles.nextskip}
-            style={{ position: "fixed", bottom: "5vh", left: "0" }}
-          >
+          <button onClick={handleButtonNext} className={styles.next_button}>
             Next
           </button>
-          <button
-            onClick={handleButtonSkip}
-            id={styles.nextskip}
-            style={{ position: "fixed", bottom: "5vh", right: "0" }}
-          >
+          <button onClick={handleButtonSkip} className={styles.skip_button}>
             Skip
           </button>
-
-          {/* ------------------------------------------------------------ */}
-
-          {/* <h4>
-            Current list:{" "}
-            {questionsLeft.map((item, index) => (
-              <div
-                key={index + item}
-                style={
-                  index % 2 === 0
-                    ? { color: "CadetBlue", fontSize: "0.8rem" }
-                    : { color: "CornflowerBlue", fontSize: "0.8rem" }
-                }
-              >
-                {index + 1}: {item}
-              </div>
-            ))}
-          </h4> */}
-          {/* <h4>
-            Skipped items:{" "}
-            {skippedQuestions.map((item, index) => (
-              <div
-                key={index + item}
-                style={
-                  index % 2 === 0
-                    ? { color: "CadetBlue", fontSize: "0.8rem" }
-                    : { color: "CornflowerBlue", fontSize: "0.8rem" }
-                }
-              >
-                {index + 1}: {item}
-              </div>
-            ))}
-          </h4> */}
         </div>
       </div>
     </>

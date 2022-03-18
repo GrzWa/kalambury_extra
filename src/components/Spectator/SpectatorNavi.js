@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { getDocs, collection, onSnapshot } from "firebase/firestore";
+import { collection, onSnapshot } from "firebase/firestore";
 import { db } from "../Firebase/firebase";
 import { Link } from "react-router-dom";
 import styles from "./styles.module.css";
@@ -26,33 +26,37 @@ export default function SpectatorNavi() {
   return (
     <>
       <div className={gstyles.background2}>
-        <div className={styles.topblur}>
+        <div>
           <Link to="/">
             <button className={gstyles.topback}>&lt;</button>
           </Link>
-          <div id={styles.round}>Choose a game to spectate:</div>
+          <div className={styles.round}>Choose a game to spectate:</div>
           {Object.keys(allGames).length ? (
-            Object.entries(allGames).map((obj, index) => (
-              <div
-                key={obj[0]}
-                className={styles.list}
-                id={index % 2 === 0 ? gstyles.team0 : gstyles.team1}
-              >
-                <div style={{ fontSize: "1.5rem" }}>
-                  Game ID: {+obj[0].slice(4)}
-                </div>
+            Object.entries(allGames).map((obj, index) => {
+              const gameId = obj[0];
+              const gameData = obj[1];
+              return (
+                <div
+                  key={gameId}
+                  className={styles.list}
+                  id={index % 2 === 0 ? gstyles.team0 : gstyles.team1}
+                >
+                  <div style={{ fontSize: "1.5rem" }}>
+                    Game ID: {+gameId.slice(4)}
+                  </div>
 
-                <div>
-                  {obj[1].currentRound > 3 ? (
-                    "Game ended."
-                  ) : (
-                    <Link to={`/spectate/${obj[0].replace(/\s/g, "")}`}>
-                      <button>Spectate</button>
-                    </Link>
-                  )}
+                  <div>
+                    {gameData.currentRound > 3 ? (
+                      "Game ended."
+                    ) : (
+                      <Link to={`/spectate/${gameId.replace(/\s/g, "")}`}>
+                        <button>Spectate</button>
+                      </Link>
+                    )}
+                  </div>
                 </div>
-              </div>
-            ))
+              );
+            })
           ) : (
             <div>Loading</div>
           )}
