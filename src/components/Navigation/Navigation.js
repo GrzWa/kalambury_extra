@@ -1,14 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { Link, BrowserRouter } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { db } from "../Firebase/firebase";
-import {
-  collection,
-  getDocs,
-  addDoc,
-  updateDoc,
-  doc,
-  setDoc,
-} from "firebase/firestore";
+import { collection, getDocs, doc, setDoc } from "firebase/firestore";
 import styles from "./styles.module.css";
 import gstyles from "../gstyles.module.css";
 import { Redirect } from "react-router-dom/cjs/react-router-dom.min";
@@ -44,28 +37,6 @@ export default function Navigation() {
 
       setAllSets(tempAllSets);
       setSet(Object.entries(tempAllSets)[0][0]);
-
-      // let tempSetButtons = [];
-      // Object.entries(tempAllSets).map((obj, index) => {
-      //   !obj[1].disabled
-      //     ? (tempSetButtons[index] = (
-      //         <div className={styles.align} key={`${obj[0]}${index}`}>
-      //           <Button
-      //             variant="contained"
-      //             id={styles.sets}
-      //             color={obj[0] === set ? "success" : "primary"}
-      //             onClick={() => {
-      //               handelButtonSet(obj[0]);
-      //             }}
-      //           >
-      //             {obj[1].title}
-      //           </Button>
-      //           <br />
-      //         </div>
-      //       ))
-      //     : console.log("disabled");
-      // });
-      // setSetButtons(tempSetButtons);
     };
     // --------------- Get games data ---------------
     const getGames = async () => {
