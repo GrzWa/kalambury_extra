@@ -97,6 +97,11 @@ export default function Navigation() {
         main: "#6474aB",
         contrastText: "#fff",
       },
+      light: {
+        main: "#eee",
+        darker: "#ddd",
+        contrastText: "#777",
+      },
     },
   });
 
@@ -151,10 +156,14 @@ export default function Navigation() {
         <br />
         <div className={styles.align} id={styles.bottom}>
           <Link to="/admin">
-            <Button variant="contained">Admin page</Button>
+            <Button variant="contained" color="light">
+              Admin page
+            </Button>
           </Link>
           <Link to="/spectate">
-            <Button variant="contained">Spectator mode</Button>
+            <Button variant="contained" color="light">
+              Spectator mode
+            </Button>
           </Link>
         </div>
       </div>

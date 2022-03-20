@@ -52,10 +52,11 @@ button:hover {
   position: absolute;
   z-index: 10;
   width: 100vw;
-  height: 100vh;
+  height: auto;
   background-color: rgba(255, 255, 255, 60%);
   backdrop-filter: blur(4px);
   font-size: 1.5rem;
+  padding-bottom: 5rem;
 }
 
 .instructions {
