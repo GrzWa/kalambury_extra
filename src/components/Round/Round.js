@@ -16,7 +16,7 @@ export default function Round() {
   const [points, setPoints] = useState([0, 0]);
   const [team, setTeam] = useState(0);
   const [round, setRound] = useState(0);
-  const [seconds, setSeconds] = useState(25);
+  const [seconds, setSeconds] = useState(30);
   const [finish, setFinish] = useState(false);
   const [allQuestions, setAllQuestions] = useState([]);
 
@@ -44,7 +44,7 @@ export default function Round() {
       setTeam(data.activeTeam);
       setRound(data.currentRound);
       setPoints(data.teamPoints);
-      setSeconds(60);
+      setSeconds(1000);
     };
 
     getList();

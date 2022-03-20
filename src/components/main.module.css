@@ -1,10 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;1,700&display=swap");
+:root {
+  --teams-background: #ddd;
+}
+
 * {
   font-family: "Poppins";
 }
 
 .background {
-  background-color: #323232;
+  background-color: var(--teams-background);
   height: 100vh;
 }
 
@@ -44,13 +48,13 @@
 }
 
 #team0 {
-  background-color: rgba(140, 220, 140, 0.6);
-  color: #cea5a5;
+  color: #6fa46f;
+  background-color: var(--teams-background);
 }
 
 #team1 {
-  background-color: rgba(220, 140, 140, 0.6);
-  color: #93c9c9;
+  color: #dc8c8c;
+  background-color: var(--teams-background);
 }
 
 #team {
