@@ -1,7 +1,8 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { doc, getDoc, updateDoc } from "firebase/firestore";
 import { db } from "../Firebase/firebase";
+import styles from "./styles.module.css";
 
 export default function DisplayedSet() {
   const params = useParams();
@@ -71,6 +72,6 @@ export default function DisplayedSet() {
       </div>
     );
   } else {
-    return <div>Something went wrong</div>;
+    return <div>Loading...</div>;
   }
 }

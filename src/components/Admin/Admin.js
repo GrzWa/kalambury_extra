@@ -4,19 +4,24 @@ import SetsEditing from "../SetsEditing/SetsEditing";
 import DisplayedSet from "../SetsEditing/DisplayedSet";
 import GamesEditing from "../GamesEditing/GamesEditing";
 import DisplayedGame from "../GamesEditing/DisplayedGame";
+import main from "../main.module.css";
 
 export default function Admin() {
   return (
     <>
-      <Link to="/admin/edit_sets">
-        <button>Edit sets</button>
-      </Link>
-      <Link to="/admin/edit_games">
-        <button>Edit games</button>
-      </Link>
-      <Link to="/">
-        <button>Main page</button>
-      </Link>
+      <div className={main.topbar}>
+        <Link to="/admin/edit_sets">
+          <button>Edit sets</button>
+        </Link>
+        <Link to="/admin/edit_games">
+          <button>Edit games</button>
+        </Link>
+      </div>
+      <div className={main.topback}>
+        <Link to="/">
+          <button>&lt;</button>
+        </Link>
+      </div>
 
       <Switch>
         <Route exact path="/admin/edit_sets">

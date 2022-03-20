@@ -7,3 +7,11 @@
   color: gray;
   background-color: aliceblue;
 }
+
+.darkbg {
+  background-color: #dedede;
+}
+
+.lightbg {
+  background-color: #efefef;
+}

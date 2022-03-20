@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { getDocs, collection } from "firebase/firestore";
 import { db } from "../Firebase/firebase";
 import { Link } from "react-router-dom";
+import styles from "./style.module.css";
 
 export default function GamesEditing() {
   const [allGames, setAllGames] = useState({});
@@ -25,10 +26,13 @@ export default function GamesEditing() {
   return (
     <>
       {Object.keys(allGames).length ? (
-        Object.entries(allGames).map((obj) => {
+        Object.entries(allGames).map((obj, index) => {
           const gameId = obj[0];
           return (
-            <div key={gameId}>
+            <div
+              key={gameId}
+              className={index % 2 === 0 ? styles.darkbg : styles.lightbg}
+            >
               <div>Game ID: {gameId}</div>
               <Link to={`/admin/edit_games/${gameId.replace(/\s/g, "")}`}>
                 <button>Edit</button>

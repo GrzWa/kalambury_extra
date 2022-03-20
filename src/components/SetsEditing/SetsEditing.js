@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { getDocs, collection, updateDoc, doc } from "firebase/firestore";
 import { db } from "../Firebase/firebase";
 import Switch from "@mui/material/Switch";
+import styles from "./styles.module.css";
 
 export default function SetsEditing() {
   const [allSets, setAllSets] = useState({});
@@ -42,19 +43,24 @@ export default function SetsEditing() {
   return (
     <>
       {Object.keys(allSets).length ? (
-        Object.entries(allSets).map((obj) => {
+        Object.entries(allSets).map((obj, index) => {
           const gameId = obj[0];
           const gameData = obj[1];
           return (
-            <div key={gameId}>
-              <div>{gameData.title}</div>
-              <Link to={`/admin/edit_sets/${gameId.replace(/\s/g, "")}`}>
-                <button>Edit</button>
-              </Link>
-              <Switch
-                onChange={() => handleSetSwitch(gameId)}
-                checked={!gameData.disabled}
-              />
+            <div
+              key={gameId}
+              className={index % 2 === 0 ? styles.darkbg : styles.lightbg}
+            >
+              <div className={styles.sets}>
+                <div>{gameData.title}</div>
+                <Link to={`/admin/edit_sets/${gameId.replace(/\s/g, "")}`}>
+                  <button>Edit</button>
+                </Link>
+                <Switch
+                  onChange={() => handleSetSwitch(gameId)}
+                  checked={!gameData.disabled}
+                />
+              </div>
             </div>
           );
         })
