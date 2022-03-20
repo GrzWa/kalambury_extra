@@ -3,7 +3,7 @@ import { collection, onSnapshot } from "firebase/firestore";
 import { db } from "../Firebase/firebase";
 import { Link } from "react-router-dom";
 import styles from "./styles.module.css";
-import gstyles from "../gstyles.module.css";
+import main from "../main.module.css";
 
 export default function SpectatorNavi() {
   const [allGames, setAllGames] = useState({});
@@ -25,10 +25,10 @@ export default function SpectatorNavi() {
 
   return (
     <>
-      <div className={gstyles.background2}>
+      <div className={main.background2}>
         <div>
           <Link to="/">
-            <button className={gstyles.topback}>&lt;</button>
+            <button className={main.topback}>&lt;</button>
           </Link>
           <div className={styles.round}>Choose a game to spectate:</div>
           {Object.keys(allGames).length ? (
@@ -39,7 +39,7 @@ export default function SpectatorNavi() {
                 <div
                   key={gameId}
                   className={styles.list}
-                  id={index % 2 === 0 ? gstyles.team0 : gstyles.team1}
+                  id={index % 2 === 0 ? main.team0 : main.team1}
                 >
                   <div style={{ fontSize: "1.5rem" }}>
                     Game ID: {+gameId.slice(4)}

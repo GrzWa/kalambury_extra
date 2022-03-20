@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { db } from "../Firebase/firebase";
 import { collection, getDocs, doc, setDoc } from "firebase/firestore";
 import styles from "./styles.module.css";
-import gstyles from "../gstyles.module.css";
+import main from "../main.module.css";
 import { Redirect } from "react-router-dom/cjs/react-router-dom.min";
 import Button from "@mui/material/Button";
 import { createTheme } from "@mui/material/styles";
@@ -115,7 +115,7 @@ export default function Navigation() {
       >
         <HelpOutlineIcon />
       </IconButton>
-      <div className={gstyles.background2}>
+      <div className={main.background2}>
         <div className={styles.align}>
           <Button
             variant="contained"

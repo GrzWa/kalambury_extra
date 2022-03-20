@@ -4,7 +4,7 @@ import { useParams } from "react-router";
 import { Link } from "react-router-dom";
 import { db } from "../Firebase/firebase";
 import styles from "./styles.module.css";
-import gstyles from "../gstyles.module.css";
+import main from "../main.module.css";
 
 export default function SpectatorGame() {
   const params = useParams();
@@ -20,36 +20,32 @@ export default function SpectatorGame() {
 
   return (
     <>
-      <div className={gstyles.background2}>
+      <div className={main.background2}>
         {currentGame?.teamPoints ? (
           <>
             <div className={styles.round}>
               <Link to="/spectate/">
-                <button
-                  className={gstyles.topback}
-                >
-                  &lt;
-                </button>
+                <button className={main.topback}>&lt;</button>
               </Link>
               {currentGame.currentRound > 3
                 ? "THE END"
                 : `Current round: ${currentGame.currentRound}`}
             </div>
             {/* --------------------------------------------------------- */}
-            <div className={gstyles.row}>
-              <div className={gstyles.column} id={gstyles.team0}>
+            <div className={main.row}>
+              <div className={main.column} id={main.team0}>
                 {currentGame.activeTeam === 0 && currentGame.currentRound < 4
                   ? ">Team 1<"
                   : "Team 1"}
-                <div id={gstyles.points}>{currentGame.teamPoints[0]}</div>
+                <div id={main.points}>{currentGame.teamPoints[0]}</div>
               </div>
 
               {/* --------------------------------------------------------- */}
-              <div className={gstyles.column} id={gstyles.team1}>
+              <div className={main.column} id={main.team1}>
                 {currentGame.activeTeam === 1 && currentGame.currentRound < 4
                   ? ">Team 2<"
                   : "Team 2"}
-                <div id={gstyles.points}>{currentGame.teamPoints[1]}</div>
+                <div id={main.points}>{currentGame.teamPoints[1]}</div>
               </div>
             </div>
           </>

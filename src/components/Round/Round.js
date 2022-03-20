@@ -5,7 +5,7 @@ import { updateDoc, doc, getDoc } from "firebase/firestore";
 import { useParams } from "react-router";
 import _ from "lodash";
 import styles from "./styles.module.css";
-import gstyles from "../gstyles.module.css";
+import main from "../main.module.css";
 import { Link } from "react-router-dom";
 import { getRoundInstructions } from "./utils";
 
@@ -184,16 +184,16 @@ export default function Round() {
 
   return (
     <>
-      <div className={gstyles.background}>
+      <div className={main.background}>
         <Link to="/">
-          <button className={gstyles.topback}>Home</button>
+          <button className={main.topback}>Home</button>
         </Link>
-        <div className={gstyles.topbar}>
+        <div className={main.topbar}>
           Round: {round}
           <br />
           Team: {team}
         </div>
-        <div id={team === 1 ? gstyles.team1 : gstyles.team0}>
+        <div id={team === 1 ? main.team1 : main.team0}>
           <div className={styles.points_display}>
             <div className={styles.center}>{getRoundInstructions(round)}</div>
             <br />

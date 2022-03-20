@@ -3,7 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import { db } from "../Firebase/firebase";
 import { doc, getDoc } from "firebase/firestore";
 import styles from "./styles.module.css";
-import gstyles from "../gstyles.module.css";
+import main from "../main.module.css";
 
 export default function Summary() {
   const [round, setRound] = useState(0);
@@ -30,25 +30,25 @@ export default function Summary() {
 
   return (
     <>
-      <div className={gstyles.background}>
+      <div className={main.background}>
         {round > 3 ? (
-          <div className={gstyles.topbar}>THE END</div>
+          <div className={main.topbar}>THE END</div>
         ) : (
           <>
-            <div className={gstyles.topbar}>Round {round}</div>
+            <div className={main.topbar}>Round {round}</div>
           </>
         )}
-        <div className={gstyles.row}>
-          <div className={gstyles.column} id={gstyles.team0}>
-            <div id={gstyles.team}>Team 1</div>
-            <div id={gstyles.points}>{points[0]}</div>
+        <div className={main.row}>
+          <div className={main.column} id={main.team0}>
+            <div id={main.team}>Team 1</div>
+            <div id={main.points}>{points[0]}</div>
             {activeTeam === 0 && round <= 3 ? (
               <div style={{ fontSize: "5vw" }}>Going next</div>
             ) : null}
           </div>
-          <div className={gstyles.column} id={gstyles.team1}>
-            <div id={gstyles.team}>Team 2</div>
-            <div id={gstyles.points}>{points[1]}</div>
+          <div className={main.column} id={main.team1}>
+            <div id={main.team}>Team 2</div>
+            <div id={main.points}>{points[1]}</div>
             {activeTeam === 1 && round <= 3 ? (
               <div style={{ fontSize: "5vw" }}>Going next</div>
             ) : null}
@@ -63,7 +63,7 @@ export default function Summary() {
         ) : null}
         <br />
         <Link to="/">
-          <button id={gstyles.back}>Back to start</button>
+          <button id={main.back}>Back to start</button>
         </Link>
       </div>
     </>
