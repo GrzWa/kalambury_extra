@@ -4,6 +4,7 @@ import { db } from "../Firebase/firebase";
 import { doc, getDoc } from "firebase/firestore";
 import styles from "./styles.module.css";
 import main from "../main.module.css";
+import HomeLogo from "../HomeLogo/HomeLogo";
 
 export default function Summary() {
   const [round, setRound] = useState(0);
@@ -30,6 +31,7 @@ export default function Summary() {
 
   return (
     <>
+      <HomeLogo />
       <div className={main.background}>
         {round > 3 ? (
           <div className={main.topbar}>THE END</div>

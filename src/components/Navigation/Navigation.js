@@ -48,6 +48,7 @@ export default function Navigation() {
         tempGame = { ...tempGame, [tempID]: tempData };
         setAllGames(tempGame);
       });
+      console.log(tempGame);
     };
 
     getList();
@@ -58,14 +59,20 @@ export default function Navigation() {
     let tempAllGames = Object.entries(allGames);
 
     // ---------------- Create new game ID ----------------
-    let newGameNumber = (
-      +tempAllGames[tempAllGames.length - 1][0].slice(-4) + 1
-    ).toString(10);
-    while (newGameNumber.length < 4) {
-      newGameNumber = "0" + newGameNumber;
+    let tempGameID;
+    if (tempAllGames.length === 0) {
+      tempGameID = "game0001";
+      setNewGameID(tempGameID);
+    } else {
+      let newGameNumber = (
+        +tempAllGames[tempAllGames.length - 1][0].slice(-4) + 1
+      ).toString(10);
+      while (newGameNumber.length < 4) {
+        newGameNumber = "0" + newGameNumber;
+      }
+      tempGameID = "game" + newGameNumber;
+      setNewGameID(tempGameID);
     }
-    const tempGameID = "game" + newGameNumber;
-    setNewGameID(tempGameID);
 
     // ---------------- Add new game to firestore ----------------
     const newGameDoc = doc(db, "games", tempGameID);

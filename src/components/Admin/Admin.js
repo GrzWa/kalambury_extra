@@ -5,10 +5,12 @@ import DisplayedSet from "../SetsEditing/DisplayedSet";
 import GamesEditing from "../GamesEditing/GamesEditing";
 import DisplayedGame from "../GamesEditing/DisplayedGame";
 import main from "../main.module.css";
+import HomeLogo from "../HomeLogo/HomeLogo";
 
 export default function Admin() {
   return (
     <>
+      <HomeLogo />
       <div className={main.topbar}>
         <Link to="/admin/edit_sets">
           <button>Edit sets</button>
@@ -17,11 +19,7 @@ export default function Admin() {
           <button>Edit games</button>
         </Link>
       </div>
-      <div className={main.topback}>
-        <Link to="/">
-          <button>&lt;</button>
-        </Link>
-      </div>
+      <div className={main.topback}></div>
 
       <Switch>
         <Route exact path="/admin/edit_sets">

@@ -4,6 +4,7 @@ import { db } from "../Firebase/firebase";
 import { Link } from "react-router-dom";
 import styles from "./styles.module.css";
 import main from "../main.module.css";
+import HomeLogo from "../HomeLogo/HomeLogo";
 
 export default function SpectatorNavi() {
   const [allGames, setAllGames] = useState({});
@@ -25,11 +26,9 @@ export default function SpectatorNavi() {
 
   return (
     <>
+      <HomeLogo />
       <div className={main.background2}>
         <div>
-          <Link to="/">
-            <button className={main.topback}>&lt;</button>
-          </Link>
           <div className={styles.round}>Choose a game to spectate:</div>
           {Object.keys(allGames).length ? (
             Object.entries(allGames).map((obj, index) => {

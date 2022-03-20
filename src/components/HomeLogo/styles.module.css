@@ -1,0 +1,12 @@
+.logo {
+  position: absolute;
+  top: 1em;
+  left: 1em;
+  color: azure;
+  font-size: 1.1em;
+}
+
+.logo2 {
+  font-weight: 900;
+  color: rgb(29, 104, 208);
+}

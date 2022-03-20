@@ -8,6 +8,7 @@ import styles from "./styles.module.css";
 import main from "../main.module.css";
 import { Link } from "react-router-dom";
 import { getRoundInstructions } from "./utils";
+import HomeLogo from "../HomeLogo/HomeLogo";
 
 export default function Round() {
   const [currentQuestion, setCurrentQuestion] = useState("");
@@ -44,7 +45,7 @@ export default function Round() {
       setTeam(data.activeTeam);
       setRound(data.currentRound);
       setPoints(data.teamPoints);
-      setSeconds(1000);
+      setSeconds(30);
     };
 
     getList();
@@ -184,10 +185,11 @@ export default function Round() {
 
   return (
     <>
+      <HomeLogo />
       <div className={main.background}>
-        <Link to="/">
+        {/* <Link to="/">
           <button className={main.topback}>Home</button>
-        </Link>
+        </Link> */}
         <div className={main.topbar}>
           Round: {round}
           <br />
