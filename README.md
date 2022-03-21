@@ -1,3 +1,35 @@
+WORK IN PROGRESS
+
+A simple charades-like game.
+
+In order for the app to work you need to add your Firestore API details in ".env.local" file:
+
+REACT_APP_API_KEY="YOUR-VALUE-HERE"
+REACT_APP_AUTH_DOMAIN="YOUR-VALUE-HERE"
+REACT_APP_PROJECT_ID="YOUR-VALUE-HERE"
+REACT_APP_STORAGE_BUCKET="YOUR-VALUE-HERE"
+REACT_APP_MESSAGING_SENDER_ID="YOUR-VALUE-HERE"
+REACT_APP_APP_ID="YOUR-VALUE-HERE"
+REACT_APP_MEASUREMENT_ID="YOUR-VALUE-HERE"
+
+Features of the app:
+
+- Can be played on one or multiple devices
+- Includes "Spectator Mode" - it can show real-time data on e.g. separate TV screen
+- Includes a simple "Admin Page" for minor question sets changes or game data adjustements (points, questions left, current round etc.)
+
+Rules of the game:
+
+1. There are 2 teams and 3 round.
+2. Teams take turns and have certain amount of time to guess as many of the words/phrases as they can.
+3. If all the questions from the set are guessed the next round commences
+4. In the 1st round the chosen person in the team can describe the phrase however they want.
+5. In the 2nd round the phrase can only be describe with one word and nothing more.
+6. In the 3rd round the phrase can only be acted out, no words or sounds can be used.
+7. If the team guesses corectly the phrase, the person describing it should press "Next", otherwise the phrase can be skipped.
+8. For each correct guess the team gets one point.
+9. At the end of the game the team with more points wins.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
