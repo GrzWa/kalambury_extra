@@ -187,9 +187,6 @@ export default function Round() {
     <>
       <HomeLogo />
       <div className={main.background}>
-        {/* <Link to="/">
-          <button className={main.topback}>Home</button>
-        </Link> */}
         <div className={main.topbar}>
           Round: {round}
           <br />

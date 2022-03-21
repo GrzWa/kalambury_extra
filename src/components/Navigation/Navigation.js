@@ -11,6 +11,7 @@ import { ThemeProvider } from "@emotion/react";
 import { IconButton } from "@mui/material";
 import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
 import HelpScreen from "./HelpScreen";
+import _ from "lodash";
 
 export default function Navigation() {
   const [set, setSet] = useState("");
@@ -27,16 +28,23 @@ export default function Navigation() {
   useEffect(() => {
     // --------------- Get all questions sets ---------------
     const getList = async () => {
-      let data = await getDocs(setsCollectionRef);
-      let tempAllSets;
-      data.docs.forEach((doc) => {
-        const tempID = doc.id;
-        const tempData = { ...doc.data() };
-        tempAllSets = { ...tempAllSets, [tempID]: tempData };
-      });
+      try {
+        let data = await getDocs(setsCollectionRef);
+        let tempAllSets;
+        data.docs.forEach((doc) => {
+          const tempID = doc.id;
+          const tempData = { ...doc.data() };
+          tempAllSets = { ...tempAllSets, [tempID]: tempData };
+        });
 
-      setAllSets(tempAllSets);
-      setSet(Object.entries(tempAllSets)[0][0]);
+        setAllSets(tempAllSets);
+        let tempActiveSet = Object.entries(tempAllSets).find(
+          (el) => el[1].disabled === false
+        );
+        setSet(tempActiveSet[0]);
+      } catch (e) {
+      } finally {
+      }
     };
     // --------------- Get games data ---------------
     const getGames = async () => {
@@ -48,7 +56,6 @@ export default function Navigation() {
         tempGame = { ...tempGame, [tempID]: tempData };
         setAllGames(tempGame);
       });
-      console.log(tempGame);
     };
 
     getList();
@@ -112,6 +119,15 @@ export default function Navigation() {
     },
   });
 
+  const handleCreateNewSet = async () => {
+    const newSetDoc = doc(db, "sets", "set0001");
+    await setDoc(newSetDoc, {
+      disabled: false,
+      questions: ["first question"],
+      title: "First set",
+    });
+  };
+
   if (startRound) {
     return <Redirect to={`round/${newGameID}`} />;
   }
@@ -134,31 +150,55 @@ export default function Navigation() {
             onClick={() => handleButtonStart()}
             className={styles.main}
             color="start"
+            disabled={_.isEmpty(allSets)}
           >
             START NEW GAME
           </Button>
         </div>
-        <p className={styles.align}>Choose question set:</p>
-        <div style={{ paddingBottom: "3rem" }}>
-          {setButtons.map((obj) => obj)}
-          {Object.entries(allSets).map((obj, index) =>
-            !obj[1].disabled ? (
-              <div className={styles.align} key={`${obj[0]}${index}`}>
+
+        {/* ------------------- QUESTION SETS ------------------------ */}
+        {_.isEmpty(allSets) ? (
+          <div className={styles["sets-list"]}>
+            <div className={styles.align}>
+              <Link to="/admin/edit_sets/set0001">
                 <Button
                   variant="contained"
                   id={styles.sets}
-                  color={obj[0] === set ? "success" : "primary"}
+                  color="success"
                   onClick={() => {
-                    handelButtonSet(obj[0]);
+                    handleCreateNewSet();
                   }}
                 >
-                  {allSets[obj[0]].title}
+                  Create new set
                 </Button>
-                <br />
-              </div>
-            ) : null
-          )}
-        </div>
+              </Link>
+            </div>
+          </div>
+        ) : (
+          <>
+            <p className={styles.align}>Choose question set:</p>
+            <div className={styles["sets-list"]}>
+              {setButtons.map((obj) => obj)}
+              {Object.entries(allSets).map((obj, index) =>
+                !obj[1].disabled ? (
+                  <div className={styles.align} key={`${obj[0]}${index}`}>
+                    <Button
+                      variant="contained"
+                      id={styles.sets}
+                      color={obj[0] === set ? "success" : "primary"}
+                      onClick={() => {
+                        handelButtonSet(obj[0]);
+                      }}
+                    >
+                      {allSets[obj[0]].title}
+                    </Button>
+                    <br />
+                  </div>
+                ) : null
+              )}
+            </div>
+          </>
+        )}
 
         <br />
         <div className={styles.align} id={styles.bottom}>
