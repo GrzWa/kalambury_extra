@@ -19,8 +19,8 @@ button:hover {
 }
 
 .main {
-  padding: 1rem;
-  margin: 1rem;
+  padding: 1em;
+  margin: 1em;
 }
 
 .background {
@@ -37,15 +37,15 @@ button:hover {
 
 #bottom {
   position: fixed;
-  bottom: 1rem;
-  left: 0rem;
-  right: 0rem;
+  bottom: 1em;
+  left: 0;
+  right: 0;
 }
 
 #helpButton {
   position: fixed;
-  top: 1rem;
-  right: 1rem;
+  top: 1em;
+  right: 1em;
 }
 
 #helpWindow {
@@ -56,9 +56,9 @@ button:hover {
   background-color: rgba(255, 255, 255, 60%);
   backdrop-filter: blur(4px);
   font-size: 1.5rem;
-  padding-bottom: 5rem;
+  padding-bottom: 5em;
 }
 
 .instructions {
-  padding: 1rem;
+  padding: 1em;
 }
