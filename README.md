@@ -4,6 +4,7 @@ A simple charades-like game.
 
 In order for the app to work you need to add your Firestore API details in ".env.local" file:
 
+```
 REACT_APP_API_KEY="YOUR-VALUE-HERE"
 REACT_APP_AUTH_DOMAIN="YOUR-VALUE-HERE"
 REACT_APP_PROJECT_ID="YOUR-VALUE-HERE"
@@ -11,6 +12,7 @@ REACT_APP_STORAGE_BUCKET="YOUR-VALUE-HERE"
 REACT_APP_MESSAGING_SENDER_ID="YOUR-VALUE-HERE"
 REACT_APP_APP_ID="YOUR-VALUE-HERE"
 REACT_APP_MEASUREMENT_ID="YOUR-VALUE-HERE"
+```
 
 Features of the app:
 
