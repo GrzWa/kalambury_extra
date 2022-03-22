@@ -67,7 +67,7 @@ export default function DisplayedGame() {
       setCurrentGame((prev) => {
         return { ...prev, activeTeam: 0 };
       });
-    } else if (!activeTeam) {
+    } else {
       setCurrentGame((prev) => {
         return { ...prev, activeTeam: 1 };
       });
@@ -103,18 +103,18 @@ export default function DisplayedGame() {
   };
 
   const handleQuestionsLeft = (question) => {
-    let questionsLeft = currentGame.questionsLeft;
+    let tempQuestionsLeft = currentGame.questionsLeft;
     const index = currentGame.questionsLeft.indexOf(question);
 
-    if (questionsLeft.includes(question)) {
-      questionsLeft.splice(index, 1);
+    if (tempQuestionsLeft.includes(question)) {
+      tempQuestionsLeft.splice(index, 1);
       setAllSets((prev) => {
-        return { ...prev, questionsLeft: questionsLeft };
+        return { ...prev, questionsLeft: tempQuestionsLeft };
       });
     } else {
-      questionsLeft.push(question);
+      tempQuestionsLeft.push(question);
       setAllSets((prev) => {
-        return { ...prev, questionsLeft: questionsLeft };
+        return { ...prev, questionsLeft: tempQuestionsLeft };
       });
     }
   };

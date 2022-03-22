@@ -43,7 +43,7 @@ export default function Navigation() {
         );
         setSet(tempActiveSet[0]);
       } catch (e) {
-      } finally {
+        console.log(e);
       }
     };
     // --------------- Get games data ---------------
