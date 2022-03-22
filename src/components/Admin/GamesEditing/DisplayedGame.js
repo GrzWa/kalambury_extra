@@ -7,7 +7,7 @@ import {
 } from "firebase/firestore";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
-import { db } from "../Firebase/firebase";
+import { db } from "../../Firebase/firebase";
 import styles from "./style.module.css";
 import _ from "lodash";
 

@@ -1,9 +1,9 @@
 import React from "react";
 import { Link, Route, Switch } from "react-router-dom/";
-import SetsEditing from "../SetsEditing/SetsEditing";
-import DisplayedSet from "../SetsEditing/DisplayedSet";
-import GamesEditing from "../GamesEditing/GamesEditing";
-import DisplayedGame from "../GamesEditing/DisplayedGame";
+import SetsEditing from "./SetsEditing/SetsEditing";
+import DisplayedSet from "./SetsEditing/DisplayedSet";
+import GamesEditing from "./GamesEditing/GamesEditing";
+import DisplayedGame from "./GamesEditing/DisplayedGame";
 import main from "../main.module.css";
 import HomeLogo from "../HomeLogo/HomeLogo";
 

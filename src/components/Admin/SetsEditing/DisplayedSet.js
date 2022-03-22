@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { doc, getDoc, updateDoc } from "firebase/firestore";
-import { db } from "../Firebase/firebase";
+import { db } from "../../Firebase/firebase";
 import styles from "./styles.module.css";
 
 export default function DisplayedSet() {

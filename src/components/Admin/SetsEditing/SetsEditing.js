@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { getDocs, collection, updateDoc, doc } from "firebase/firestore";
-import { db } from "../Firebase/firebase";
+import { db } from "../../Firebase/firebase";
 import Switch from "@mui/material/Switch";
 import styles from "./styles.module.css";
 
