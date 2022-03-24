@@ -178,24 +178,25 @@ export default function Navigation() {
           <>
             <p className={styles.align}>Choose question set:</p>
             <div className={styles["sets-list"]}>
-              {setButtons.map((obj) => obj)}
-              {Object.entries(allSets).map((obj, index) =>
-                !obj[1].disabled ? (
-                  <div className={styles.align} key={`${obj[0]}${index}`}>
+              {Object.entries(allSets).map((obj, index) => {
+                const setId = obj[0];
+                const setData = obj[1];
+                return !setData.disabled ? (
+                  <div className={styles.align} key={`${setId}${index}`}>
                     <Button
                       variant="contained"
                       id={styles.sets}
-                      color={obj[0] === set ? "success" : "primary"}
+                      color={setId === set ? "success" : "primary"}
                       onClick={() => {
-                        handelButtonSet(obj[0]);
+                        handelButtonSet(setId);
                       }}
                     >
-                      {allSets[obj[0]].title}
+                      {allSets[setId].title}
                     </Button>
                     <br />
                   </div>
-                ) : null
-              )}
+                ) : null;
+              })}
             </div>
           </>
         )}

@@ -66,3 +66,11 @@ button:hover {
 .sets-list {
   padding-bottom: 10vh;
 }
+
+.instructions-title {
+  font-size: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 1em;
+}

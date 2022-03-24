@@ -5,7 +5,7 @@ import {
   getDocs,
   updateDoc,
 } from "firebase/firestore";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import { useParams } from "react-router";
 import { db } from "../../Firebase/firebase";
 import styles from "./style.module.css";
@@ -20,25 +20,25 @@ export default function DisplayedGame() {
   const gameDoc = doc(db, "games", params.game);
   const setsCollectionRef = collection(db, "sets");
 
+  const loadData = useCallback(async () => {
+    let data = await getDoc(gameDoc);
+    data = data.data();
+    setCurrentGame(data);
+
+    let data2 = await getDocs(setsCollectionRef);
+    let tempSets;
+    data2.docs.forEach((doc) => {
+      const tempID = doc.id;
+      const tempData = { ...doc.data() };
+      tempSets = { ...tempSets, [tempID]: tempData };
+      setAllSets(tempSets);
+      const dataBackup = _.cloneDeep(data);
+      const data2Backup = _.cloneDeep(data2);
+      setBackupData({ gameData: dataBackup, setsData: data2Backup });
+    });
+  }, []);
+
   useEffect(() => {
-    const loadData = async () => {
-      let data = await getDoc(gameDoc);
-      data = data.data();
-      setCurrentGame(data);
-
-      let data2 = await getDocs(setsCollectionRef);
-      let tempSets;
-      data2.docs.forEach((doc) => {
-        const tempID = doc.id;
-        const tempData = { ...doc.data() };
-        tempSets = { ...tempSets, [tempID]: tempData };
-        setAllSets(tempSets);
-        const dataBackup = _.cloneDeep(data);
-        const data2Backup = _.cloneDeep(data2);
-        setBackupData({ gameData: dataBackup, setsData: data2Backup });
-      });
-    };
-
     loadData();
   }, []);
 
@@ -63,7 +63,7 @@ export default function DisplayedGame() {
   };
 
   const handleTeamChange = () => {
-    if (activeTeam) {
+    if (activeTeam === 1) {
       setCurrentGame((prev) => {
         return { ...prev, activeTeam: 0 };
       });
@@ -75,7 +75,7 @@ export default function DisplayedGame() {
   };
 
   const handlePointsChange = (team, operation) => {
-    let tempGame = currentGame;
+    let tempGame = _.cloneDeep(currentGame);
     if (operation === "add") {
       tempGame.teamPoints[team]++;
       setCurrentGame((prev) => {
@@ -90,7 +90,7 @@ export default function DisplayedGame() {
   };
 
   const handleChangeSet = (newSet) => {
-    let tempCurrentGame = currentGame;
+    let tempCurrentGame = _.cloneDeep(currentGame);
     tempCurrentGame.activeSet = newSet;
     setCurrentGame((prev) => {
       return {
@@ -133,8 +133,8 @@ export default function DisplayedGame() {
   return (
     <>
       <br />
-      <button onClick={() => saveData()}>Save</button>
-      <button onClick={() => restoreData()}>Restore</button>
+      <button onClick={saveData}>Save</button>
+      <button onClick={restoreData}>Restore</button>
       {/* ------------ ROUND ------------ */}
       <div>
         <p>
@@ -172,11 +172,15 @@ export default function DisplayedGame() {
         <br />
         Choose new set:
         <br />
-        {Object.entries(allSets).map((obj) => (
-          <div key={obj[0]} onClick={() => handleChangeSet(obj[0])}>
-            {obj[1].title}
-          </div>
-        ))}
+        {Object.entries(allSets).map((obj) => {
+          const setId = obj[0];
+          const setData = obj[1];
+          return (
+            <div key={setId} onClick={() => handleChangeSet(setId)}>
+              {setData.title}
+            </div>
+          );
+        })}
       </div>
       <br />
       {/* ------------ QUESTIONS LEFT ------------ */}
