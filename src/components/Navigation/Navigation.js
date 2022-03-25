@@ -20,7 +20,6 @@ export default function Navigation() {
   const [startRound, setStartRound] = useState(false);
   const [newGameID, setNewGameID] = useState("");
   const [help, setHelp] = useState(false);
-  const [setButtons, setSetButtons] = useState([]);
 
   const setsCollectionRef = collection(db, "sets");
   const gamesCollectionRef = collection(db, "games");

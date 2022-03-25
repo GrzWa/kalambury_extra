@@ -6,7 +6,6 @@ import { useParams } from "react-router";
 import _ from "lodash";
 import styles from "./styles.module.css";
 import main from "../main.module.css";
-import { Link } from "react-router-dom";
 import { getRoundInstructions } from "./utils";
 import HomeLogo from "../HomeLogo/HomeLogo";
 
