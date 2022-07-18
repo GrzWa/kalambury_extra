@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Redirect } from "react-router-dom/cjs/react-router-dom.min";
 import { db } from "../Firebase/firebase";
 import { updateDoc, doc, getDoc } from "firebase/firestore";
-import { useParams } from "react-router";
+import { useParams } from "react-router-dom";
 import _ from "lodash";
 import styles from "./styles.module.css";
 import main from "../main.module.css";
@@ -20,7 +20,7 @@ export default function Round() {
   const [finish, setFinish] = useState(false);
   const [allQuestions, setAllQuestions] = useState([]);
 
-  const params = useParams();
+  const params = useParams()
   const currentGameDoc = doc(db, "games", params.gameID);
 
   useEffect(() => {
@@ -48,6 +48,7 @@ export default function Round() {
     };
 
     getList();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
@@ -69,6 +70,7 @@ export default function Round() {
     return () => {
       clearTimeout(timer1);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [seconds]);
 
   function listChanger(val1, val2 = val1, val3 = val1) {
