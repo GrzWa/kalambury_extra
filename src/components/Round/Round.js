@@ -20,7 +20,7 @@ export default function Round() {
   const [finish, setFinish] = useState(false);
   const [allQuestions, setAllQuestions] = useState([]);
 
-  const params = useParams()
+  const params = useParams();
   const currentGameDoc = doc(db, "games", params.gameID);
 
   useEffect(() => {

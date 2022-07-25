@@ -59,6 +59,7 @@ export default function Navigation() {
 
     getList();
     getGames();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleButtonStart = async () => {
@@ -128,7 +129,7 @@ export default function Navigation() {
   };
 
   if (startRound) {
-    return <Redirect to={`round/${newGameID}`} />;
+    return <Redirect to={`/round/${newGameID}`} />;
   }
 
   return (
