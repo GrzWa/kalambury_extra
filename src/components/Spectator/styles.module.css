@@ -1,10 +1,6 @@
-.row {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+.container {
+  height: 100vh;
+  background-color: red;
 }
 
 .column {
@@ -19,11 +15,18 @@
 
 .round {
   font-size: 1.5rem;
-  text-align: center;
   background-color: #282828;
   color: white;
-  padding-top: 3em;
-  height: 4em;
+  height: 10%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 h1 {

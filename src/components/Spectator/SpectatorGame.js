@@ -20,7 +20,7 @@ export default function SpectatorGame() {
 
   return (
     <>
-      <div className={main.background2}>
+      <div className={styles.container}>
         {currentGame?.teamPoints ? (
           <>
             <div className={styles.round}>
@@ -37,7 +37,7 @@ export default function SpectatorGame() {
                 {currentGame.activeTeam === 0 && currentGame.currentRound < 4
                   ? ">Team 1<"
                   : "Team 1"}
-                <div id={main.points}>{currentGame.teamPoints[0]}</div>
+                <div className={main.points}>{currentGame.teamPoints[0]}</div>
               </div>
 
               {/* --------------------------------------------------------- */}
@@ -45,7 +45,7 @@ export default function SpectatorGame() {
                 {currentGame.activeTeam === 1 && currentGame.currentRound < 4
                   ? ">Team 2<"
                   : "Team 2"}
-                <div id={main.points}>{currentGame.teamPoints[1]}</div>
+                <div className={main.points}>{currentGame.teamPoints[1]}</div>
               </div>
             </div>
           </>

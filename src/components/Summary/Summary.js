@@ -43,16 +43,16 @@ export default function Summary() {
         <div className={main.row}>
           <div className={main.column} id={main.team0}>
             <div id={main.team}>Team 1</div>
-            <div id={main.points}>{points[0]}</div>
+            <div className={main.points}>{points[0]}</div>
             {activeTeam === 0 && round <= 3 ? (
               <div style={{ fontSize: "5vw" }}>Going next</div>
             ) : null}
           </div>
           <div className={main.column} id={main.team1}>
             <div id={main.team}>Team 2</div>
-            <div id={main.points}>{points[1]}</div>
+            <div className={main.points}>{points[1]}</div>
             {activeTeam === 1 && round <= 3 ? (
-              <div style={{ fontSize: "5vw" }}>Going next</div>
+              <div>Going next</div>
             ) : null}
           </div>
         </div>

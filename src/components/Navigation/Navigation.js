@@ -134,7 +134,10 @@ export default function Navigation() {
 
   return (
     <ThemeProvider theme={theme}>
+      {/* ------------------- Help screen ------------------- */}
       {help ? <HelpScreen setHelp={setHelp} /> : null}
+
+      {/* ------------------- Help button ------------------- */}
       <IconButton
         color="secondary"
         aria-label="add an alarm"
@@ -143,6 +146,7 @@ export default function Navigation() {
       >
         <HelpOutlineIcon />
       </IconButton>
+      
       <div className={main.background2}>
         <div className={styles.align}>
           <Button

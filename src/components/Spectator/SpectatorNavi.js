@@ -29,7 +29,7 @@ export default function SpectatorNavi() {
       <HomeLogo />
       <div className={main.background2}>
         <div>
-          <div className={styles.round}>Choose a game to spectate:</div>
+          <div className={main.topbar}>Choose a game to spectate:</div>
           {Object.keys(allGames).length ? (
             Object.entries(allGames).map((obj, index) => {
               const gameId = obj[0];

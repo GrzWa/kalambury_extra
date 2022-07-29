@@ -39,10 +39,14 @@
 }
 
 .topbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 10vh;
   font-size: 1.5rem;
-  text-align: center;
+  // text-align: center;
   color: white;
-  padding: 1em;
+  // padding: 1em;
   background-color: rgb(50, 50, 50);
 }
 
@@ -63,7 +67,7 @@
   color: #333;
 }
 
-#points {
+.points {
   font-size: 8rem;
 }
 
@@ -80,4 +84,16 @@
   position: absolute;
   top: 0.8em;
   left: 0.8em;
+}
+
+@media only screen and (min-width: 500px){
+  .column {
+    font-size: #{"min(4em, 5vw)"};
+  }
+
+  .points {
+    font-size: #{"min(35vw, 60vh)"};
+    line-height: 0.9em;
+    overflow: hidden;
+  }
 }
