@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { db } from "../Firebase/firebase";
 import { collection, getDocs, doc, setDoc } from "firebase/firestore";
 import styles from "./styles.module.css";
@@ -12,6 +12,7 @@ import { IconButton } from "@mui/material";
 import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
 import HelpScreen from "./HelpScreen";
 import _ from "lodash";
+import { useAuth } from "../../contexts/AuthContext";
 
 export default function Navigation() {
   const [set, setSet] = useState("");
@@ -20,6 +21,9 @@ export default function Navigation() {
   const [startRound, setStartRound] = useState(false);
   const [newGameID, setNewGameID] = useState("");
   const [help, setHelp] = useState(false);
+  const {currentUser, logout} = useAuth();
+  const [error, setError] = useState('')
+  const history = useHistory()
 
   const setsCollectionRef = collection(db, "sets");
   const gamesCollectionRef = collection(db, "games");
@@ -128,6 +132,17 @@ export default function Navigation() {
     });
   };
 
+  async function handleLogout() {
+    setError('')
+
+    try {
+      await logout()
+      history.pushState('/login')
+    } catch {
+      setError('Failed to log out.')
+    }
+  }
+
   if (startRound) {
     return <Redirect to={`/round/${newGameID}`} />;
   }
@@ -149,6 +164,7 @@ export default function Navigation() {
       
       <div className={main.background2}>
         <div className={styles.align}>
+        {currentUser.email} <button onClick={() => handleLogout()}>Log Out</button>
           <Button
             variant="contained"
             onClick={() => handleButtonStart()}
