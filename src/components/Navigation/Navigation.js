@@ -13,6 +13,7 @@ import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
 import HelpScreen from "./HelpScreen";
 import _ from "lodash";
 import { useAuth } from "../../contexts/AuthContext";
+import { getAuth } from "firebase/auth";
 
 export default function Navigation() {
   const [set, setSet] = useState("");
@@ -27,6 +28,10 @@ export default function Navigation() {
 
   const setsCollectionRef = collection(db, "sets");
   const gamesCollectionRef = collection(db, "games");
+
+  // getAuth().getUser(currentUser.uid).then((userRecord) => {console.log(`${userRecord.toJSON()}`)}).catch(error => {
+  //   console.log(error)
+  // })
 
   useEffect(() => {
     // --------------- Get all questions sets ---------------
