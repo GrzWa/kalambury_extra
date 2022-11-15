@@ -1,3 +1,4 @@
+@import '../../utils/variables';
 .link > * {
   text-decoration: none;
 }
@@ -9,6 +10,5 @@
 
 .logo-accent {
   font-weight: 900;
-  color: #cd5334;
+  color: $accent;
 }
-/*# sourceMappingURL=styles.module.css.map */

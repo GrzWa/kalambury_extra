@@ -4,10 +4,12 @@ import styles from "./styles.module.css";
 
 export default function HomeLogo() {
   return (
-    <Link to="/">
-      <div className={styles.logo}>
-        Cha<span className={styles.logo2}>rades</span>
-      </div>
-    </Link>
+    <div className={styles.link}>
+      <Link to="/">
+        <div className={styles.logo}>
+          Cha<span className={styles['logo-accent']}>rades</span>
+        </div>
+      </Link>
+    </div>
   );
 }

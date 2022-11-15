@@ -1,8 +1,7 @@
+import styles from './Layout.module.css'
+
 export const Layout = ({ children }) => (
-  <div>
-    <div>Menu</div>
-    <br />
+  <div className={styles.container}>
     {children}
-    <div>Footer</div>
   </div>
 );

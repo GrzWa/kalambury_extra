@@ -3,7 +3,7 @@ import {auth} from '../components/Firebase/firebase'
 import { createUserWithEmailAndPassword, sendPasswordResetEmail, signInWithEmailAndPassword } from 'firebase/auth'
 
 const AuthContext = React.createContext()
-
+ 
 export function useAuth() {
     return useContext(AuthContext)
 }

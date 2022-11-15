@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "AAEA,AAAA,OAAO,CAAC;EACJ,aAAa,EAAE,GAAG;EAClB,cAAc,EAAE,GAAG;EACnB,gBAAgB,ECHb,OAAO;EDIV,KAAK,ECFC,OAAO;CDGhB",
+    "sources": [
+        "ButtonCOmponent.module.scss",
+        "../_variables.scss"
+    ],
+    "names": [],
+    "file": "ButtonCOmponent.module.css"
+}

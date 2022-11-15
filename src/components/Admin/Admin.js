@@ -6,11 +6,13 @@ import GamesEditing from "./GamesEditing/GamesEditing";
 import DisplayedGame from "./GamesEditing/DisplayedGame";
 import main from "../main.module.css";
 import HomeLogo from "../HomeLogo/HomeLogo";
+import Navbar from "../Navbar/Navbar";
 
 export default function Admin() {
   return (
     <>
-      <HomeLogo />
+      {/* <HomeLogo /> */}
+      <Navbar />
       <div className={main.topbar}>
         <Link to="/admin/edit_sets">
           <button>Edit sets</button>
@@ -20,7 +22,7 @@ export default function Admin() {
         </Link>
       </div>
       <div className={main.topback}></div>
-
+      
       <Switch>
         <Route exact path="/admin/edit_sets">
           <SetsEditing />

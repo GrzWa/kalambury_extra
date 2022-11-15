@@ -20,7 +20,7 @@ function App() {
       <BrowserRouter>
         <AuthProvider>
           <Switch>
-            <PrivateRoute exact path="/" component={Navigation} />
+            <Route exact path="/" component={Navigation} />
             <Route path="/signup">
                 <SignUp />
             </Route>
@@ -30,8 +30,8 @@ function App() {
             <Route path="/forgot-password">
                 <ForgotPassword />
             </Route>
-            <PrivateRoute path="/round/:gameID" component={Round}/>
-            <PrivateRoute path="/summary/:gameID" component={Summary}/>
+            <Route path="/round/:gameID" component={Round}/>
+            <Route path="/summary/:gameID" component={Summary}/>
             <PrivateRoute path="/admin" component={Admin}/>
             <Route path="/spectate" component={Spectator}/>
           </Switch>

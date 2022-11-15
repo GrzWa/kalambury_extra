@@ -1,0 +1,5 @@
+.container {
+  margin-inline: auto;
+  width: calc(min(800px, 100%));
+}
+/*# sourceMappingURL=Layout.module.css.map */

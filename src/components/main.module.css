@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;1,700&display=swap");
 :root {
   --teams-background: #ddd;
+  --color-green: rgb(111, 164, 111);
 }
 
 * {

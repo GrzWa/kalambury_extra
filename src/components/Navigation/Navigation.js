@@ -6,7 +6,6 @@ import styles from "./styles.module.css";
 import main from "../main.module.css";
 import { Redirect } from "react-router-dom/cjs/react-router-dom.min";
 import Button from "@mui/material/Button";
-import { createTheme } from "@mui/material/styles";
 import { ThemeProvider } from "@emotion/react";
 import { IconButton } from "@mui/material";
 import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
@@ -14,6 +13,8 @@ import HelpScreen from "./HelpScreen";
 import _ from "lodash";
 import { useAuth } from "../../contexts/AuthContext";
 import { getAuth } from "firebase/auth";
+import Navbar from "../Navbar/Navbar";
+import MUItheme from "../../utils/MUItheme";
 
 export default function Navigation() {
   const [set, setSet] = useState("");
@@ -107,26 +108,7 @@ export default function Navigation() {
     setSet(name);
   }
 
-  const theme = createTheme({
-    status: {
-      danger: "#e53e3e",
-    },
-    palette: {
-      primary: {
-        main: "#aaa",
-        darker: "#333",
-      },
-      start: {
-        main: "#6474aB",
-        contrastText: "#fff",
-      },
-      light: {
-        main: "#eee",
-        darker: "#ddd",
-        contrastText: "#777",
-      },
-    },
-  });
+  const theme = MUItheme
 
   const handleCreateNewSet = async () => {
     const newSetDoc = doc(db, "sets", "set0001");
@@ -154,6 +136,7 @@ export default function Navigation() {
 
   return (
     <ThemeProvider theme={theme}>
+      <Navbar />
       {/* ------------------- Help screen ------------------- */}
       {help ? <HelpScreen setHelp={setHelp} /> : null}
 
@@ -169,7 +152,7 @@ export default function Navigation() {
       
       <div className={main.background2}>
         <div className={styles.align}>
-        {currentUser.email} <button onClick={() => handleLogout()}>Log Out</button>
+          {currentUser ? <>{currentUser.email} <button onClick={() => handleLogout()}>Log Out</button></> : null}
           <Button
             variant="contained"
             onClick={() => handleButtonStart()}
@@ -211,7 +194,7 @@ export default function Navigation() {
                     <Button
                       variant="contained"
                       id={styles.sets}
-                      color={setId === set ? "success" : "primary"}
+                      color={setId === set ? "accent" : "base"}
                       onClick={() => {
                         handelButtonSet(setId);
                       }}

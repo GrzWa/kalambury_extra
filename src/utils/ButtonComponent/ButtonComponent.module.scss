@@ -1,0 +1,8 @@
+@import '../../utils/variables';
+
+.button {
+    border-radius: 5em;
+    padding-inline: 2em;
+    background-color: $base;
+    color: $accent2;
+}
