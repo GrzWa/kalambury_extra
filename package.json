@@ -10,6 +10,7 @@
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/user-event": "^14.2.5",
     "bootstrap": "^5.2.0",
+    "clsx": "^1.2.1",
     "firebase": "^9.9.0",
     "formik": "^2.2.9",
     "lodash": "^4.17.21",

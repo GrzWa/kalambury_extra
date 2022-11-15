@@ -23,9 +23,9 @@ export default function Navigation() {
   const [startRound, setStartRound] = useState(false);
   const [newGameID, setNewGameID] = useState("");
   const [help, setHelp] = useState(false);
-  const {currentUser, logout} = useAuth();
-  const [error, setError] = useState('')
-  const history = useHistory()
+  // const {currentUser, logout} = useAuth();
+  // const [error, setError] = useState('')
+  // const history = useHistory()
 
   const setsCollectionRef = collection(db, "sets");
   const gamesCollectionRef = collection(db, "games");
@@ -119,16 +119,16 @@ export default function Navigation() {
     });
   };
 
-  async function handleLogout() {
-    setError('')
+  // async function handleLogout() {
+  //   setError('')
 
-    try {
-      await logout()
-      history.pushState('/login')
-    } catch {
-      setError('Failed to log out.')
-    }
-  }
+  //   try {
+  //     await logout()
+  //     history.pushState('/login')
+  //   } catch {
+  //     setError('Failed to log out.')
+  //   }
+  // }
 
   if (startRound) {
     return <Redirect to={`/round/${newGameID}`} />;
@@ -141,29 +141,17 @@ export default function Navigation() {
       {help ? <HelpScreen setHelp={setHelp} /> : null}
 
       {/* ------------------- Help button ------------------- */}
-      <IconButton
+      {/* <IconButton
         color="secondary"
         aria-label="add an alarm"
         id={styles.helpButton}
         onClick={() => setHelp(true)}
       >
         <HelpOutlineIcon />
-      </IconButton>
+      </IconButton> */}
       
-      <div className={main.background2}>
-        <div className={styles.align}>
-          {currentUser ? <>{currentUser.email} <button onClick={() => handleLogout()}>Log Out</button></> : null}
-          <Button
-            variant="contained"
-            onClick={() => handleButtonStart()}
-            className={styles.main}
-            color="start"
-            disabled={_.isEmpty(allSets)}
-          >
-            START NEW GAME
-          </Button>
-        </div>
-
+      {/* <div> */}
+        <div className={main['background-checkered']}></div>
         {/* ------------------- QUESTION SETS ------------------------ */}
         {_.isEmpty(allSets) ? (
           <div className={styles["sets-list"]}>
@@ -183,46 +171,48 @@ export default function Navigation() {
             </div>
           </div>
         ) : (
-          <>
-            <p className={styles.align}>Choose question set:</p>
+          <div className={styles.content}>
+            <p className={styles.choose}>Choose question set:</p>
             <div className={styles["sets-list"]}>
+              
               {Object.entries(allSets).map((obj, index) => {
                 const setId = obj[0];
                 const setData = obj[1];
+
                 return !setData.disabled ? (
-                  <div className={styles.align} key={`${setId}${index}`}>
-                    <Button
-                      variant="contained"
-                      id={styles.sets}
-                      color={setId === set ? "accent" : "base"}
-                      onClick={() => {
-                        handelButtonSet(setId);
-                      }}
-                    >
+                  <div key={`${setId}${index}`} className={setId === set ? `${styles['set-button']} ${styles.selected}` : styles['set-button']}
+                  // >
+                  //   <Button
+                  //     variant="contained"
+                  //     id={styles['button-sets']}
+                  //     color={setId === set ? "accent" : "base"}
+
+                      onClick={() => {handelButtonSet(setId)}}>
                       {allSets[setId].title}
-                    </Button>
-                    <br />
+
+                    {/* </Button> */}
+                    {/* <br /> */}
                   </div>
                 ) : null;
               })}
+
             </div>
-          </>
+            <div className={styles['new-game']}>
+              <Button
+                variant="contained"
+                onClick={() => handleButtonStart()}
+                className={styles.main}
+                color="accentLight"
+                disabled={_.isEmpty(allSets)}
+              >
+                START NEW GAME
+              </Button>
+            </div>
+          </div>
         )}
 
-        <br />
-        <div className={styles.align} id={styles.bottom}>
-          <Link to="/admin">
-            <Button variant="contained" color="light">
-              Admin page
-            </Button>
-          </Link>
-          <Link to="/spectate">
-            <Button variant="contained" color="light">
-              Spectator mode
-            </Button>
-          </Link>
-        </div>
-      </div>
+    
+      {/* </div> */}
     </ThemeProvider>
   );
 }

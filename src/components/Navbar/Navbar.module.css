@@ -1,7 +1,14 @@
+:export {
+  teamGreen: #6fa46f;
+  teamRed: #dc8c8c;
+  baseColor: #2e282a;
+  accent: #e02150;
+  accentLight: #fc6288;
+}
+
 .navbar {
   background-color: #2e282a;
-  height: 5em;
-  min-height: 10vh;
+  height: 10vh;
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -9,8 +16,9 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding-inline: 2em;
 }
 /*# sourceMappingURL=Navbar.module.css.map */

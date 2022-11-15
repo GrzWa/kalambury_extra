@@ -1,3 +1,11 @@
+:export {
+  teamGreen: #6fa46f;
+  teamRed: #dc8c8c;
+  baseColor: #2e282a;
+  accent: #e02150;
+  accentLight: #fc6288;
+}
+
 .link > * {
   text-decoration: none;
 }
@@ -9,6 +17,6 @@
 
 .logo-accent {
   font-weight: 900;
-  color: #cd5334;
+  color: #e02150;
 }
 /*# sourceMappingURL=styles.module.css.map */

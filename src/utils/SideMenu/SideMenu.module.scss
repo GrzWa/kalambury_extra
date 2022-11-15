@@ -1,0 +1,132 @@
+@import '../variables';
+
+.backdrop {
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: -1;
+}
+
+.burger-container {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.burger-hidden {
+    display: none;
+}
+
+.burger:hover {
+    cursor: pointer;
+}
+
+.burger {
+    height: 50%;
+    width: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 12%;
+
+    .burger-line {
+        width: 100%;
+        height: 16%;
+        border-radius: 10em;
+        background-color: $accent;
+    }
+}
+
+.menu-container {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: clamp(30vw, 25em, 90vw);
+    z-index: 100;
+    backdrop-filter: blur(7px);
+
+    .top-bar {
+        width: 100%;
+        height: 10%;
+        background-color: $accent;
+        display: flex;
+        justify-content: end;
+
+        .close {
+            height: 100%;
+            width: 80px;
+            position: relative;
+        }
+
+        .close:after {
+            position: absolute;
+            display: block;
+            top: 50%;
+            transform: translateY(-50%);
+            right: 15%;
+            content: "\D7";
+            font-size: 5em; 
+            color: $base;
+        }
+
+        .close:hover {
+            cursor: pointer;
+        }
+    }
+
+    .menu-content {
+        padding: 2em;
+        position: fixed;
+        min-height: 90vh;
+        width: 100%;
+        background-color: rgba($color: $base, $alpha: 0.6);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .link {
+            text-decoration: none;
+            font-size: 1.5em;
+            color: white;
+            margin-bottom: 1em;
+            padding: 0.5em;
+            border-radius: 10em;
+            // background-color: rgba($color: $base, $alpha: 0.3);
+        }
+
+        .link:hover {
+            background-color: white;
+            color: $base;
+        }
+
+        .user {
+            margin-top: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .not-logged-in {
+            margin-top: auto;
+
+            > * {
+                text-decoration: none;
+            }
+        }
+    }
+}
+
+.menu-hidden {
+    display: none;
+
+    .backdrop {
+        display: none;
+    }
+
+    .close {
+        display: none;
+    }
+}

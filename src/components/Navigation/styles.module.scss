@@ -1,0 +1,110 @@
+@import '../../utils/variables';
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+
+// #button-sets {
+//   font-size: 1.5rem;
+// }
+
+.set-button {
+  padding: 1em;
+  font-size: 1.5em;
+  background-color: $base;
+  color: $accent;
+  border-radius: 0.4em;
+  flex-grow: 1;
+  cursor: pointer;
+}
+
+.selected {
+  background-color: $accent;
+  color: $base;
+}
+
+.choose {
+  font-family: "Indie Flower";
+  font-size: 3em;
+  padding-top: 0.3em;
+  color: $base-dark;
+}
+
+button:hover {
+  outline: 1px dotted gray;
+  background-color: #eee;
+}
+
+::selection {
+  background-color: lightslategray;
+}
+
+.main {
+  padding: 1em;
+  margin: 1em;
+}
+
+#bottom {
+  position: fixed;
+  bottom: 1em;
+  left: 0;
+  right: 0;
+}
+
+#helpButton {
+  position: fixed;
+  top: 1em;
+  right: 1em;
+}
+
+#helpWindow {
+  position: fixed;
+  z-index: 10;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 60%);
+  backdrop-filter: blur(5px);
+  font-size: 1.5rem;
+  padding-bottom: 1em;
+  height: 100%;
+}
+
+.instructions {
+  padding: 1em;
+}
+
+.sets-list {
+  overflow: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1em;
+  width: calc(min(90vw, 800px));
+}
+
+.sets-list::-webkit-scrollbar {
+  display: none;
+}
+
+.instructions-title {
+  font-size: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 1em;
+}
+
+.content {
+  height: 100vh - $navbar-height;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.new-game {
+  margin-top: auto;
+  margin-bottom: 2em;
+
+  > * {
+    font-size: 1.5em;
+  }
+}

@@ -1,7 +1,15 @@
+:export {
+  teamGreen: #6fa46f;
+  teamRed: #dc8c8c;
+  baseColor: #2e282a;
+  accent: #e02150;
+  accentLight: #fc6288;
+}
+
 .button {
   border-radius: 5em;
   padding-inline: 2em;
   background-color: #2e282a;
-  color: #edb88b;
+  color: #fc6288;
 }
-/*# sourceMappingURL=ButtonCOmponent.module.css.map */
+/*# sourceMappingURL=ButtonComponent.module.css.map */

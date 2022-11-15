@@ -1,4 +1,5 @@
 import { createTheme } from "@mui/material/styles";
+import styles from './_variables.scss'
 
 export default function MUItheme() {
     const theme = createTheme({
@@ -11,14 +12,14 @@ export default function MUItheme() {
             darker: "#333",
           },
           base: {
-            main: "#2e282a",
+            main: styles.baseColor,
             contrastText: "#fff",
           },
           accent: {
-            main: "#cd5334",
+            main: styles.accent,
         },
-          accent2: {
-            main: "#edb88b",
+          accentLight: {
+            main: styles.accentLight,
         },
           start: {
             main: "#6474aB",
@@ -33,9 +34,3 @@ export default function MUItheme() {
       });
   return theme
 }
-
-// $team-green: rgb(111, 164, 111);
-// $team-red: rgb(220, 140, 140);
-// $base: #2e282a;
-// $accent: #cd5334;
-// $accent2: #edb88b;

@@ -1,10 +1,10 @@
 {
     "version": 3,
-    "mappings": "AAEA,AAAA,OAAO,CAAC;EACJ,aAAa,EAAE,GAAG;EAClB,cAAc,EAAE,GAAG;EACnB,gBAAgB,ECHb,OAAO;EDIV,KAAK,ECFC,OAAO;CDGhB",
+    "mappings": "ACUA,AAAA,OAAO,CAAC;EACJ,SAAS,EAXA,OAAkB;EAY3B,OAAO,EAXA,OAAkB;EAYzB,SAAS,EAVN,OAAO;EAWV,MAAM,EATD,OAAO;EAUZ,WAAW,EATA,OAAO;CAUrB;;ADdD,AAAA,OAAO,CAAC;EACJ,aAAa,EAAE,GAAG;EAClB,cAAc,EAAE,GAAG;EACnB,gBAAgB,ECFb,OAAO;EDGV,KAAK,ECAM,OAAO;CDCrB",
     "sources": [
-        "ButtonCOmponent.module.scss",
+        "ButtonComponent.module.scss",
         "../_variables.scss"
     ],
     "names": [],
-    "file": "ButtonCOmponent.module.css"
+    "file": "ButtonComponent.module.css"
 }

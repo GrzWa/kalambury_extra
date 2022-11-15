@@ -1,13 +1,17 @@
 $team-green: rgb(111, 164, 111);
 $team-red: rgb(220, 140, 140);
-$base: #2e282a;
-$accent: #cd5334;
-$accent2: #edb88b;
 
-// :export {
-//     team-green: $team-green;
-//     team-red: $team-red;
-//     base-color: $base;
-//     accent: $accent;
-//     accent2: $accent2;
-// }
+$base: #2e282a;
+$base-dark: #191617;
+$accent: #e02150;
+$accent-light: #fc6288;
+
+$navbar-height: 10vh;
+
+:export {
+    teamGreen: $team-green;
+    teamRed: $team-red;
+    baseColor: $base;
+    accent: $accent;
+    accentLight: $accent-light;
+}
