@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/kalambury_extra/static/css/main.45490468.css",
+    "main.js": "/kalambury_extra/static/js/main.88e5f57b.js",
+    "static/js/787.1528984e.chunk.js": "/kalambury_extra/static/js/787.1528984e.chunk.js",
+    "index.html": "/kalambury_extra/index.html",
+    "main.45490468.css.map": "/kalambury_extra/static/css/main.45490468.css.map",
+    "main.88e5f57b.js.map": "/kalambury_extra/static/js/main.88e5f57b.js.map",
+    "787.1528984e.chunk.js.map": "/kalambury_extra/static/js/787.1528984e.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.45490468.css",
+    "static/js/main.88e5f57b.js"
+  ]
+}
