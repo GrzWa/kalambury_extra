@@ -15,6 +15,7 @@ import { useAuth } from "../../contexts/AuthContext";
 import { getAuth } from "firebase/auth";
 import Navbar from "../Navbar/Navbar";
 import MUItheme from "../../utils/MUItheme";
+import clsx from 'clsx'
 
 export default function Navigation() {
   const [set, setSet] = useState("");
@@ -23,16 +24,15 @@ export default function Navigation() {
   const [startRound, setStartRound] = useState(false);
   const [newGameID, setNewGameID] = useState("");
   const [help, setHelp] = useState(false);
-  // const {currentUser, logout} = useAuth();
-  // const [error, setError] = useState('')
-  // const history = useHistory()
+  const [listScrolled, setListScrolled] = useState(false)
 
   const setsCollectionRef = collection(db, "sets");
   const gamesCollectionRef = collection(db, "games");
 
-  // getAuth().getUser(currentUser.uid).then((userRecord) => {console.log(`${userRecord.toJSON()}`)}).catch(error => {
-  //   console.log(error)
-  // })
+  const clsSetsList = clsx(
+    styles['sets-list'],
+    !listScrolled && styles['sets-list-scrolled']
+  )
 
   useEffect(() => {
     // --------------- Get all questions sets ---------------
@@ -119,16 +119,18 @@ export default function Navigation() {
     });
   };
 
-  // async function handleLogout() {
-  //   setError('')
-
-  //   try {
-  //     await logout()
-  //     history.pushState('/login')
-  //   } catch {
-  //     setError('Failed to log out.')
-  //   }
-  // }
+  const handleScroll = (e) => {
+    const bottom = e.target.scrollHeight - e.target.scrollTop - e.target.clientHeight < 10
+    // console.log('--------------------')
+    // console.log(e.target.scrollHeight - e.target.scrollTop)
+    // console.log(e.target.clientHeight)
+    // console.log('--------------------')
+    if (bottom) {
+      setListScrolled(true)
+    } else if (listScrolled) {
+      setListScrolled(false)
+    }
+  }
 
   if (startRound) {
     return <Redirect to={`/round/${newGameID}`} />;
@@ -141,16 +143,6 @@ export default function Navigation() {
       {help ? <HelpScreen setHelp={setHelp} /> : null}
 
       {/* ------------------- Help button ------------------- */}
-      {/* <IconButton
-        color="secondary"
-        aria-label="add an alarm"
-        id={styles.helpButton}
-        onClick={() => setHelp(true)}
-      >
-        <HelpOutlineIcon />
-      </IconButton> */}
-      
-      {/* <div> */}
         <div className={main['background-checkered']}></div>
         {/* ------------------- QUESTION SETS ------------------------ */}
         {_.isEmpty(allSets) ? (
@@ -173,40 +165,27 @@ export default function Navigation() {
         ) : (
           <div className={styles.content}>
             <p className={styles.choose}>Choose question set:</p>
-            <div className={styles["sets-list"]}>
-              
-              {Object.entries(allSets).map((obj, index) => {
-                const setId = obj[0];
-                const setData = obj[1];
+            {/* <div className={styles['sets-list-container']}> */}
+              <div className={styles['sets-list']} onScroll={e => handleScroll(e)}>
+                {Object.entries(allSets).map((obj, index) => {
+                  const setId = obj[0];
+                  const setData = obj[1];
 
-                return !setData.disabled ? (
-                  <div key={`${setId}${index}`} className={setId === set ? `${styles['set-button']} ${styles.selected}` : styles['set-button']}
-                  // >
-                  //   <Button
-                  //     variant="contained"
-                  //     id={styles['button-sets']}
-                  //     color={setId === set ? "accent" : "base"}
-
+                  return !setData.disabled ? (
+                    <div key={`${setId}${index}`}
+                      className={setId === set ? `${styles['set-button']} ${styles.selected}` : styles['set-button']}
                       onClick={() => {handelButtonSet(setId)}}>
-                      {allSets[setId].title}
+                        {allSets[setId].title}
+                    </div>
+                  ) : null;
+                })}
 
-                    {/* </Button> */}
-                    {/* <br /> */}
-                  </div>
-                ) : null;
-              })}
+              </div>
+              {/* <div className={styles['sets-list-overlay']}></div> */}
+            {/* </div> */}
 
-            </div>
-            <div className={styles['new-game']}>
-              <Button
-                variant="contained"
-                onClick={() => handleButtonStart()}
-                className={styles.main}
-                color="accentLight"
-                disabled={_.isEmpty(allSets)}
-              >
-                START NEW GAME
-              </Button>
+            <div className={styles['new-game']} onClick={() => handleButtonStart()}>
+                START
             </div>
           </div>
         )}

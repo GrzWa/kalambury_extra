@@ -69,20 +69,26 @@ button:hover {
   padding: 1em;
 }
 
-.sets-list {
-  overflow: scroll;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 1em;
-  width: calc(min(90vw, 800px));
-}
 
-.sets-list::-webkit-scrollbar {
-  display: none;
-}
+  // position: relative;
+  
+  .sets-list {
+    // background-color: red;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 1em;
+    width: calc(min(90vw, 800px));
+    padding-inline: 1em;
+    overflow: scroll;
+    // -ms-overflow-style: none;
+    // scrollbar-width: none;
+    margin-bottom: 1em;
+  }
+
+// .sets-list::-webkit-scrollbar {
+//   display: none;
+// }
 
 .instructions-title {
   font-size: 2rem;
@@ -102,9 +108,18 @@ button:hover {
 
 .new-game {
   margin-top: auto;
-  margin-bottom: 2em;
+  margin-bottom: 1em;
+  font-size: 2.5em;
+  background-color: $accent-light;
+  padding: 0.5em;
+  padding-inline: 1em;
+  border-radius: 10em;
+  color: $base;
+  font-weight: 700;
+  outline: 3px solid $base;
+  cursor: pointer;
+}
 
-  > * {
-    font-size: 1.5em;
-  }
+.new-game:hover {
+  background-color: $accent;
 }
