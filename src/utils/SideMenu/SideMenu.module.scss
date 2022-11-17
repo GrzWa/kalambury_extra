@@ -41,12 +41,14 @@
 
 .menu-container {
     position: absolute;
+    overflow: hidden;
     top: 0;
     right: 0;
     height: 100vh;
     width: clamp(30vw, 25em, 90vw);
     z-index: 100;
     backdrop-filter: blur(7px);
+    transition: width ease-in-out 0.3s;
 
     .top-bar {
         width: 100%;
@@ -86,6 +88,8 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+        opacity: 1;
+        transition: opacity ease-in-out 0.3s 0.3s;
 
         .link {
             text-decoration: none;
@@ -94,12 +98,11 @@
             margin-bottom: 1em;
             padding: 0.5em;
             border-radius: 10em;
-            // background-color: rgba($color: $base, $alpha: 0.3);
+            border-bottom: 2px solid rgba($color: #000000, $alpha: 0);
         }
-
+        
         .link:hover {
-            background-color: white;
-            color: $base;
+            border-bottom: 2px solid $accent;
         }
 
         .user {
@@ -120,7 +123,14 @@
 }
 
 .menu-hidden {
-    display: none;
+    width: 0;
+    padding: 0;
+    transition: width ease-in-out 0.3s;
+
+    .menu-content {
+        opacity: 0;
+        transition: opacity 0.2s;
+    }
 
     .backdrop {
         display: none;

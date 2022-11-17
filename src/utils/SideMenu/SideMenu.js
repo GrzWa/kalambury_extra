@@ -4,8 +4,6 @@ import clsx from 'clsx'
 import { useAuth } from '../../contexts/AuthContext'
 import { useHistory } from 'react-router'
 import { Link } from 'react-router-dom'
-import { Button } from 'react-bootstrap'
-import { ThemeProvider } from "@emotion/react";
 import MUItheme from '../MUItheme'
 
 export default function SideMenu() {
@@ -43,11 +41,8 @@ export default function SideMenu() {
     const toggleMenu = () => {
         setBurgerHidden(prev => !prev)
         setMenuHidden(prev => !prev)
-        // console.log("burger: " + burgerHidden)
-        // console.log("menu: " + menuHidden)
     }
   return (
-//   <ThemeProvider theme={theme}>
     <>
     <div className={clsBurger}>
         <div className={styles.burger} onClick={() => toggleMenu()}>
@@ -63,14 +58,10 @@ export default function SideMenu() {
         </div>
         <div className={styles['menu-content']}>
             <Link to="/admin" className={styles.link}>
-                {/* <Button variant="contained" color='light'> */}
                     Admin page
-                {/* </Button> */}
             </Link>
             <Link to="/spectate" className={styles.link}>
-                {/* <Button variant="contained" color="light"> */}
                     Spectator mode
-                {/* </Button> */}
             </Link>
             {currentUser ? 
             <div className={styles.user}>
@@ -88,6 +79,5 @@ export default function SideMenu() {
         <div className={styles.backdrop} onClick={() => toggleMenu()}></div>
     </div>
     </>
-    // </ThemeProvider>
   )
 }

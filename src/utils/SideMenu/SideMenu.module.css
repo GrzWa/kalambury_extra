@@ -58,6 +58,7 @@
 
 .menu-container {
   position: absolute;
+  overflow: hidden;
   top: 0;
   right: 0;
   height: 100vh;
@@ -65,6 +66,8 @@
   z-index: 100;
   -webkit-backdrop-filter: blur(7px);
           backdrop-filter: blur(7px);
+  -webkit-transition: width ease-in-out 0.3s;
+  transition: width ease-in-out 0.3s;
 }
 
 .menu-container .top-bar {
@@ -117,6 +120,9 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  opacity: 1;
+  -webkit-transition: opacity ease-in-out 0.3s 0.3s;
+  transition: opacity ease-in-out 0.3s 0.3s;
 }
 
 .menu-container .menu-content .link {
@@ -126,11 +132,11 @@
   margin-bottom: 1em;
   padding: 0.5em;
   border-radius: 10em;
+  border-bottom: 2px solid rgba(0, 0, 0, 0);
 }
 
 .menu-container .menu-content .link:hover {
-  background-color: white;
-  color: #2e282a;
+  border-bottom: 2px solid #e02150;
 }
 
 .menu-container .menu-content .user {
@@ -156,7 +162,16 @@
 }
 
 .menu-hidden {
-  display: none;
+  width: 0;
+  padding: 0;
+  -webkit-transition: width ease-in-out 0.3s;
+  transition: width ease-in-out 0.3s;
+}
+
+.menu-hidden .menu-content {
+  opacity: 0;
+  -webkit-transition: opacity 0.2s;
+  transition: opacity 0.2s;
 }
 
 .menu-hidden .backdrop {
